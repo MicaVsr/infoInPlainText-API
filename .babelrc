@@ -1,4 +1,8 @@
 {
+  "ignore": [
+    "/\/core-js/"
+  ],
+  "sourceType": "unambiguous",
   "presets": [
     "@babel/preset-typescript",
     [
@@ -6,7 +10,9 @@
       {
         "targets": {
           "node": true
-        }
+        },
+        "modules": false,
+        "useBuiltIns": "usage"
       }
     ]
   ],
@@ -14,6 +20,5 @@
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-object-assign",
     "@babel/plugin-proposal-object-rest-spread"
-  ],
-  "sourceType": "unambiguous"
+  ]
 }
