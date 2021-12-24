@@ -15,5 +15,5 @@ app.use("/", router);
 const PORT: any = 6060;
 httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));*/
 
-export default serverless(app);/*
-module.exports.handler = serverless(app);*/
+export default app;
+exports.handler = serverless(app);
