@@ -1,5 +1,5 @@
+import router from "./routes";
 const express = require("express");
-const router = require("./routes");
 import * as http from "http";
 
 const serverless = require("serverless-http");

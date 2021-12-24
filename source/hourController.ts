@@ -11,7 +11,7 @@ const getHour = (req: Request, res: Response) => {
     let strHour = convertedTime.getHours() + ':' + convertedTime.getMinutes();
 
     let response = `${strHour}`;
-    return res.status(200).json(response);
+    return res.status(200).send(response);
 };
 
 export default { getHour };
