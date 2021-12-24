@@ -1,43 +1,14 @@
-import http from 'http';
-import express, { Express } from 'express';
-import morgan from 'morgan';
-import routes from './routes';
+import express from 'express';
+import router from './routes';
+import * as http from "http";
 
-const app: Express = express();
-const serverless = require("serverless-http")
+const serverless = require("serverless-http");
+const app = express();
+const bodyParser = require("body-parser");
 
-/** Logging */
-app.use(morgan('dev'));
-/** Parse the request */
-app.use(express.urlencoded({ extended: false }));
-/** Takes care of JSON data */
-app.use(express.json());
-
-/** RULES OF OUR API */
-app.use((req, res, next) => {
-    // set the CORS policy
-    res.header('Access-Control-Allow-Origin', '*');
-    // set the CORS headers
-    res.header('Access-Control-Allow-Headers', 'origin, X-Requested-With,Content-Type,Accept, Authorization');
-    // set the CORS method headers
-    if (req.method === 'OPTIONS') {
-        res.header('Access-Control-Allow-Methods', 'GET PATCH DELETE POST');
-        return res.status(200).json({});
-    }
-    next();
-});
-
-/** Routes */
-app.use("/.netlify/functions/server", routes) // path must route to lambda
-app.use('/', routes);
-
-/** Error handling */
-app.use((req, res, next) => {
-    const error = new Error('not found');
-    return res.status(404).json({
-        message: error.message
-    });
-});
+app.use(bodyParser.json());
+app.use("/.netlify/functions/server", router);
+app.use("/", router);
 
 /** Server */
 const httpServer = http.createServer(app);

@@ -1,6 +1,6 @@
 import express from 'express';
-import HourController from './controllers/hour';
-import TimezonesController from './controllers/timezones';
+import HourController from './hourController';
+import TimezonesController from './timezonesController';
 const router = express.Router();
 
 router.get('/hour', HourController.getHour);
