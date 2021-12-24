@@ -1,7 +1,6 @@
 {
   "presets": [
     "@babel/preset-typescript",
-    "@quasar/babel-preset-app",
     [
       "@babel/preset-env",
       {
