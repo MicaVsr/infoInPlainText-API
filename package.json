@@ -1,0 +1,32 @@
+{
+  "name": "infoinplaintext-api",
+  "version": "1.0.0",
+  "description": "Get information in plain text to use it in Twitch / Trovo custom commands",
+  "main": "source/server.ts",
+  "scripts": {
+    "dev": "nodemon source/server.ts",
+    "build": "rm -rf build/ && prettier --write source/ && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicaVsr/infoInPlainText-API.git"
+  },
+  "author": "MicaVsr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MicaVsr/infoInPlainText-API/issues"
+  },
+  "homepage": "https://github.com/MicaVsr/infoInPlainText-API#readme",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "axios": "^0.24.0",
+    "express": "^4.17.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "timezones-list": "^3.0.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
