@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import routes from './routes';
 
 const router: Express = express();
+const serverless = require("serverless-http")
 
 /** Logging */
 router.use(morgan('dev'));
@@ -38,6 +39,9 @@ router.use((req, res, next) => {
 });
 
 /** Server */
-const httpServer = http.createServer(router);
-const PORT: any = process.env.PORT ?? 6060;
-httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
+/*const httpServer = http.createServer(router);
+const PORT: any = 6060;
+httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));*/
+
+module.exports = router;
+module.exports.handler = serverless(router);

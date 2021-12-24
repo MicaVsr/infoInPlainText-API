@@ -4,8 +4,8 @@
   "description": "Get information in plain text to use it in Twitch / Trovo custom commands",
   "main": "source/server.ts",
   "scripts": {
-    "dev": "nodemon source/server.ts",
-    "build": "rm -rf build/ && prettier --write source/ && tsc"
+    "start": "nodemon source/server.ts",
+    "build": "netlify-lambda build source"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,14 @@
     "axios": "^0.24.0",
     "express": "^4.17.2",
     "morgan": "^1.10.0",
+    "netlify-lambda": "^2.0.15",
     "nodemon": "^2.0.15",
+    "serverless-http": "^2.7.0",
     "timezones-list": "^3.0.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.16.5"
   }
 }
