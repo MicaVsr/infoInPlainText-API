@@ -11,9 +11,9 @@ app.use("/.netlify/functions/server", router);
 app.use("/", router);
 
 /** Server */
-const httpServer = http.createServer(app);
+/*const httpServer = http.createServer(app);
 const PORT: any = 6060;
-httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
+httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));*/
 
 module.exports = app;
 module.exports.handler = serverless(app);
