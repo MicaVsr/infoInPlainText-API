@@ -8,7 +8,8 @@ const getHour = (req: Request, res: Response) => {
     let now = new Date();
     let convertedTime = convertTZ(now, timeZone);
 
-    let strHour = convertedTime.getHours() + ':' + convertedTime.getMinutes();
+    let minutes = convertedTime.getMinutes() < 10 ? `0${convertedTime.getMinutes()}` : convertedTime.getMinutes();
+    let strHour = convertedTime.getHours() + ':' + minutes;
 
     let response = `${strHour}`;
     return res.status(200).send(response);
